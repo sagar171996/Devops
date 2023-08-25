@@ -1,0 +1,21 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
+JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
+M2_HOME=/opt/maven
+M2=/opt/maven/bin
+
+PATH=$PATH:$HOME/bin:$JAVA_HOME:$M2_HOME:$M2
+
+
+export PATH

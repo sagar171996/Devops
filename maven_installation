@@ -1,0 +1,56 @@
+maven installation
+------------------
+Install Apache Maven on your EC2 instance. First, enter the following to add a repository with a Maven package.
+---------------------------------------------------------------------------------------------------------------
+step 1)
+
+sudo yum install java-11* -y ###(if  java is not installed only then use this)
+
+step 2)
+
+sudo yum install maven -y
+
+(or)
+
+step 2)
+
+sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+
+--------------------------------------------------------
+if tree command not recognized use- 
+
+sudo yum install tree -y
+--------------------------------------------------------
+
+
+after installation , enter maven path in .bashrm file
+-----------------------------------------------------
+
+after the jenkins installation , enter java path in .bshrc file
+----------------------------------------------------------------
+
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
+JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
+M2_HOME=/opt/maven
+M2=/opt/maven/bin
+
+PATH=$PATH:$HOME/bin:$JAVA_HOME:$M2_HOME:$M2
+
+
+export PATH
+
+
